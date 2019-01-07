@@ -18,6 +18,10 @@ resources_dir = join(root_dir, 'test', 'resources')
 
 
 @pytest.mark.parametrize('sut, field, test, exp', [
+    ('chromium', 'stderr', 'chromium_dcheck_1.txt', 'chromium_dcheck_1_exp.txt'),
+    ('chromium', 'stderr', 'chromium_dcheck_2.txt', 'chromium_dcheck_2_exp.txt'),
+    ('chromium', 'stderr', 'chromium_fatal_error.txt', 'chromium_fatal_error_exp.txt'),
+    ('chromium', 'stderr', 'chromium_security_dcheck.txt', 'chromium_security_dcheck_exp.txt'),
     ('duktape', 'backtrace', 'gdb.txt', 'gdb_exp.txt'),
     ('duktape', 'stderr', 'duktape_assert.txt', 'duktape_assert_exp.txt'),
     ('escargot', 'backtrace', 'gdb.txt', 'gdb_exp.txt'),

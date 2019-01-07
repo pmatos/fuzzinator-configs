@@ -1,0 +1,110 @@
+[1214/151343.562095:INFO:layout_object.cc(4798)]
+LayoutView 0x615000007600              	#document
+  LayoutNGBlockFlow 0x6130000439c0     	HTML
+    LayoutNGBlockFlow 0x613000043b80   	BODY
+      LayoutNGMathMLBlock 0x6120000100c0	math
+        LayoutNGMathMLBlock 0x612000010240	mmultiscripts
+          LayoutNGMathMLBlock 0x6120000103c0	n
+*         LayoutNGMathMLBlock 0x612000010540	mprescripts
+          LayoutNGMathMLBlock 0x6120000106c0	mmultiscripts
+          LayoutNGMathMLBlock 0x612000010840	mover
+          LayoutNGMathMLBlock 0x6120000109c0	mprescripts
+      LayoutText 0x60f000009280        	#text "\n"
+[1214/151343.562384:FATAL:layout_object.h(500)] Security DCHECK failed: !NeedsLayout() || ChildLayoutBlockedByDisplayLock().
+#0 0x5568d287ae1b <unknown>
+#1 0x5568df667b09 <unknown>
+#2 0x5568df3b7193 <unknown>
+#3 0x5568df40f387 <unknown>
+#4 0x5568e7b691b4 <unknown>
+#5 0x5568e7b3b687 <unknown>
+#6 0x5568e709e102 <unknown>
+#7 0x5568e709ebf7 <unknown>
+#8 0x5568e709d78e <unknown>
+#9 0x5568e91ba81e <unknown>
+#10 0x5568e70c59a2 <unknown>
+#11 0x5568eb0c2804 <unknown>
+#12 0x5568eb1fa0cd <unknown>
+#13 0x5568eb0835c9 <unknown>
+#14 0x5568eb070acf <unknown>
+#15 0x5568eb06fbdf <unknown>
+#16 0x5568eb07a70a <unknown>
+#17 0x5568eb074d89 <unknown>
+#18 0x5568eb0743f7 <unknown>
+#19 0x5568db82b73e <unknown>
+#20 0x5568db853c5e <unknown>
+#21 0x5568db8551c7 <unknown>
+#22 0x5568db82b73e <unknown>
+#23 0x5568df52b931 <unknown>
+#24 0x5568df5801e1 <unknown>
+#25 0x5568df584548 <unknown>
+#26 0x5568df52b931 <unknown>
+#27 0x5568df58c607 <unknown>
+#28 0x5568df58bd10 <unknown>
+#29 0x5568df42cc24 <unknown>
+#30 0x5568df58e2bd <unknown>
+#31 0x5568df4c7d1b <unknown>
+#32 0x5568f02c02af <unknown>
+#33 0x5568d28eb4ca <unknown>
+#34 0x5568d28eca59 <unknown>
+#35 0x7f913794ebf7 <unknown>
+#36 0x5568d284432a <unknown>
+Task trace:
+#0 0x5568eb108d30 <unknown>
+#1 0x5568eb087d77 <unknown>
+
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==40080==ERROR: AddressSanitizer: ABRT on unknown address 0x03e900009c90 (pc 0x7f913796bfb7 bp 0x7ffe44cefe50 sp 0x7ffe44cefc00 T0)
+    #0 0x7f913796bfb7 in __GI_raise /build/glibc-S7xCS9/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51 (discriminator 3)
+    #1 0x5568df40fd9a in logging::LogMessage::~LogMessage() base/logging.cc:883
+    #2 0x5568e7b691b3 in blink::LayoutObject::AssertLaidOut() const third_party/blink/renderer/core/layout/layout_object.h:500
+    #3 0x5568e7b3b686 in AssertSubtreeIsLaidOut third_party/blink/renderer/core/layout/layout_object.h:509
+    #4 0x5568e7b3b686 in UpdateLayout third_party/blink/renderer/core/frame/local_frame_view.cc:995
+    #5 0x5568e709e101 in blink::Document::ImplicitClose() third_party/blink/renderer/core/dom/document.cc:3861
+    #6 0x5568e709ebf6 in blink::Document::CheckCompletedInternal() third_party/blink/renderer/core/dom/document.cc:3937
+    #7 0x5568e709d78d in blink::Document::CheckCompleted() third_party/blink/renderer/core/dom/document.cc:3911
+    #8 0x5568e91ba81d in blink::FrameLoader::FinishedParsing() third_party/blink/renderer/core/loader/frame_loader.cc:387
+    #9 0x5568e70c59a1 in blink::Document::FinishedParsing() third_party/blink/renderer/core/dom/document.cc:6993
+    #10 0x5568eb0c2803 in blink::HTMLConstructionSite::FinishedParsing() third_party/blink/renderer/core/html/parser/html_construction_site.cc:631
+    #11 0x5568eb1fa0cc in blink::HTMLTreeBuilder::Finished() third_party/blink/renderer/core/html/parser/html_tree_builder.cc:2958
+    #12 0x5568eb0835c8 in blink::HTMLDocumentParser::end() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1289
+    #13 0x5568eb070ace in blink::HTMLDocumentParser::AttemptToRunDeferredScriptsAndEnd() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1304
+    #14 0x5568eb06fbde in blink::HTMLDocumentParser::PrepareToStopParsing() third_party/blink/renderer/core/html/parser/html_document_parser.cc:516
+    #15 0x5568eb07a709 in blink::HTMLDocumentParser::ProcessTokenizedChunkFromBackgroundParser(std::__1::unique_ptr<blink::HTMLDocumentParser::TokenizedChunk, std::__1::default_delete<blink::HTMLDocumentParser::TokenizedChunk> >, bool*) third_party/blink/renderer/core/html/parser/html_document_parser.cc:861
+    #16 0x5568eb074d88 in blink::HTMLDocumentParser::PumpPendingSpeculations() third_party/blink/renderer/core/html/parser/html_document_parser.cc:911
+    #17 0x5568eb0743f6 in blink::HTMLDocumentParser::ResumeParsingAfterYield() third_party/blink/renderer/core/html/parser/html_document_parser.cc:597
+    #18 0x5568db82b73d in Run base/callback.h:101
+    #19 0x5568db82b73d in RunInternal third_party/blink/renderer/platform/wtf/functional.h:256
+    #20 0x5568db82b73d in Run third_party/blink/renderer/platform/wtf/functional.h:241
+    #21 0x5568db853c5d in Run base/callback.h:101
+    #22 0x5568db853c5d in Run third_party/blink/renderer/platform/scheduler/common/post_cancellable_task.cc:47
+    #23 0x5568db8551c6 in Invoke<void (blink::TaskHandle::Runner::*)(const blink::TaskHandle &), base::WeakPtr<blink::TaskHandle::Runner>, blink::TaskHandle> base/bind_internal.h:498
+    #24 0x5568db8551c6 in MakeItSo<void (blink::TaskHandle::Runner::*)(const blink::TaskHandle &), base::WeakPtr<blink::TaskHandle::Runner>, blink::TaskHandle> base/bind_internal.h:657
+    #25 0x5568db8551c6 in RunImpl<void (blink::TaskHandle::Runner::*)(const blink::TaskHandle &), std::tuple<base::WeakPtr<blink::TaskHandle::Runner>, blink::TaskHandle>, 0, 1> base/bind_internal.h:710
+    #26 0x5568db8551c6 in RunOnce base/bind_internal.h:679
+    #27 0x5568db82b73d in Run base/callback.h:101
+    #28 0x5568db82b73d in RunInternal third_party/blink/renderer/platform/wtf/functional.h:256
+    #29 0x5568db82b73d in Run third_party/blink/renderer/platform/wtf/functional.h:241
+    #30 0x5568df52b930 in Run base/callback.h:101
+    #31 0x5568df52b930 in RunTask base/task/common/task_annotator.cc:163
+    #32 0x5568df5801e0 in base::sequence_manager::internal::ThreadControllerImpl::DoWork(base::sequence_manager::internal::ThreadControllerImpl::WorkType) base/task/sequence_manager/thread_controller_impl.cc:199
+    #33 0x5568df584547 in Invoke<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> &, const base::sequence_manager::internal::ThreadControllerImpl::WorkType &> base/bind_internal.h:498
+    #34 0x5568df584547 in MakeItSo<void (base::sequence_manager::internal::ThreadControllerImpl::*const &)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> &, const base::sequence_manager::internal::ThreadControllerImpl::WorkType &> base/bind_internal.h:657
+    #35 0x5568df584547 in RunImpl<void (base::sequence_manager::internal::ThreadControllerImpl::*const &)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const std::tuple<base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType> &, 0, 1> base/bind_internal.h:710
+    #36 0x5568df584547 in Run base/bind_internal.h:692
+    #37 0x5568df52b930 in Run base/callback.h:101
+    #38 0x5568df52b930 in RunTask base/task/common/task_annotator.cc:163
+    #39 0x5568df58c606 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351
+    #40 0x5568df58bd0f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264
+    #41 0x5568df42cc23 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_default.cc:39
+    #42 0x5568df58e2bc in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460
+    #43 0x5568df4c7d1a in base::RunLoop::Run() base/run_loop.cc:131
+    #44 0x5568f02c02ae in content::RenderViewTest::LoadHTMLWithUrlOverride(char const*, char const*) content/public/test/render_view_test.cc:381
+    #45 0x5568d28eb4c9 in LoadHTML content/test/fuzzer/fuzzer_support.h:27
+    #46 0x5568d28eb4c9 in LLVMFuzzerTestOneInput content/test/fuzzer/renderer_fuzzer.cc:22
+    #47 0x5568d28eca58 in main testing/libfuzzer/unittest_main.cc:57
+    #48 0x7f913794ebf6 in __libc_start_main /build/glibc-S7xCS9/glibc-2.27/csu/../csu/libc-start.c:310
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: ABRT /build/glibc-S7xCS9/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51 (discriminator 3) in __GI_raise
+==40080==ABORTING

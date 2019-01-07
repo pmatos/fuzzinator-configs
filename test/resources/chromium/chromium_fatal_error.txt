@@ -1,0 +1,5 @@
+#
+# Fatal error in ../../src/compiler/js-inlining.cc, line 378
+# Debug check failed: IrOpcode::IsInlineeOpcode(node->opcode()).
+#
+#

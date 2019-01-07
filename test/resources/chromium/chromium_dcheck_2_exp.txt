@@ -1,0 +1,13 @@
+{
+  "address": "0x03e9000053f0",
+  "address_type": "unknown address",
+  "char": "5",
+  "condition": "data->text_content == builder.ToString()",
+  "error_type": "Check failed",
+  "file": "ng_inline_node.cc",
+  "frame_id": "3",
+  "function": "blink::NGInlineNode::ComputeOffsetMapping(blink::LayoutBlockFlow*, blink::NGInlineNodeData*)",
+  "line": "754",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

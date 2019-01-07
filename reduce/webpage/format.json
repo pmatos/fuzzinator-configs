@@ -1,0 +1,18 @@
+{
+    "start": "html:htmlDocument",
+    "grammars": {
+        "html": {
+            "files": ["HTMLParser.g4", "HTMLLexer.g4"],
+            "islands": {
+                "STYLE_BODY": "(?P<css:stylesheet>.*)</style>",
+                "SCRIPT_BODY": "(?P<js:program>.*)</script>"
+            }
+        },
+        "css": {
+            "files": ["css3.g4"]
+        },
+        "js": {
+            "files": ["ECMAScript.g4"]
+        }
+    }
+}

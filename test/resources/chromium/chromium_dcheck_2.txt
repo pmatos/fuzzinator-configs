@@ -1,0 +1,193 @@
+[0708/220252.781022:FATAL:ng_inline_node.cc(754)] Check failed: data->text_content == builder.ToString() ("\u2066\u2069\n\u2066o \u2069\n" vs. "\u2066\u2069\n\u2066o\u2069\n")
+#0 0x5582104b037b <unknown>
+#1 0x55821b89eeb9 <unknown>
+#2 0x55821b612ea3 <unknown>
+#3 0x55821b66e852 <unknown>
+#4 0x55821b66fffe <unknown>
+#5 0x558225cafb72 <unknown>
+#6 0x558225ca9eb9 <unknown>
+#7 0x558225ca0fb8 <unknown>
+#8 0x558225ca0679 <unknown>
+#9 0x558225cae6be <unknown>
+#10 0x558225df2836 <unknown>
+#11 0x558225df704b <unknown>
+#12 0x558225e23903 <unknown>
+#13 0x558225dfca83 <unknown>
+#14 0x558225dfb511 <unknown>
+#15 0x558225de2378 <unknown>
+#16 0x558225e42307 <unknown>
+#17 0x558225e4317c <unknown>
+#18 0x558225e26d13 <unknown>
+#19 0x558225e23963 <unknown>
+#20 0x558225dfca83 <unknown>
+#21 0x558225dfb511 <unknown>
+#22 0x558225de2378 <unknown>
+#23 0x558225db320c <unknown>
+#24 0x558225d846b3 <unknown>
+#25 0x5582256a9363 <unknown>
+#26 0x5582256e6f9b <unknown>
+#27 0x5582256e85a0 <unknown>
+#28 0x5582256e32eb <unknown>
+#29 0x5582256dd814 <unknown>
+#30 0x5582256dba63 <unknown>
+#31 0x558225b2898b <unknown>
+#32 0x5582256a9363 <unknown>
+#33 0x558225b29453 <unknown>
+#34 0x5582247cb25f <unknown>
+#35 0x5582247c6772 <unknown>
+#36 0x558223b4828e <unknown>
+#37 0x558223b48d9e <unknown>
+#38 0x558223b4798e <unknown>
+#39 0x5582260e4c25 <unknown>
+#40 0x5582260e40e1 <unknown>
+#41 0x558223b6dad5 <unknown>
+#42 0x558225078114 <unknown>
+#43 0x5582251a59fd <unknown>
+#44 0x558225037c89 <unknown>
+#45 0x558225025b5f <unknown>
+#46 0x558225024ccd <unknown>
+#47 0x558225038334 <unknown>
+#48 0x558225038db0 <unknown>
+#49 0x558226098b4e <unknown>
+#50 0x558226098102 <unknown>
+#51 0x558217eb8c15 <unknown>
+#52 0x558217eb99b1 <unknown>
+#53 0x5582260a0f13 <unknown>
+#54 0x5582260a667b <unknown>
+#55 0x5582260e26fe <unknown>
+#56 0x5582260eb488 <unknown>
+#57 0x5582249908a9 <unknown>
+#58 0x55822b5bb64a <unknown>
+#59 0x5582249a9ff7 <unknown>
+#60 0x5582260e847e <unknown>
+#61 0x558224dbd6ff <unknown>
+#62 0x558224e3398a <unknown>
+#63 0x558224e238bb <unknown>
+#64 0x558224e308ca <unknown>
+#65 0x5582247d9269 <unknown>
+#66 0x5582247bf127 <unknown>
+#67 0x558222b2479b <unknown>
+#68 0x558222b24f91 <unknown>
+#69 0x558217cf57b0 <unknown>
+#70 0x55821b776ac3 <unknown>
+#71 0x55821b7ca8dd <unknown>
+#72 0x55821b7ce713 <unknown>
+#73 0x55821b776ac3 <unknown>
+#74 0x55821b7d20a3 <unknown>
+#75 0x55821b7d1860 <unknown>
+#76 0x55821b68e0c4 <unknown>
+#77 0x55821b7d37a8 <unknown>
+#78 0x55821b718919 <unknown>
+#79 0x55822b5a5830 <unknown>
+#80 0x55821051e06a <unknown>
+#81 0x55821051f614 <unknown>
+#82 0x7fc67505bb97 <unknown>
+#83 0x558210479fea <unknown>
+Task trace:
+#0 0x5582247d9b0a <unknown>
+#1 0x558223b762c2 <unknown>
+#2 0x5582250b3af0 <unknown>
+#3 0x55822503c37f <unknown>
+
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==21488==ERROR: AddressSanitizer: ABRT on unknown address 0x03e9000053f0 (pc 0x7fc675078f47 bp 0x7ffda7976df0 sp 0x7ffda7976ba0 T0)
+    #0 0x7fc675078f47 in raise /build/glibc-2ORdQG/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51
+    #1 0x55821b66f27e in logging::LogMessage::~LogMessage() base/logging.cc:869:7
+    #2 0x55821b66fffd in logging::LogMessage::~LogMessage() base/logging.cc:537:27
+    #3 0x558225cafb71 in blink::NGInlineNode::ComputeOffsetMapping(blink::LayoutBlockFlow*, blink::NGInlineNodeData*) third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.cc:754:5
+    #4 0x558225ca9eb8 in blink::NGInlineNode::ComputeOffsetMappingIfNeeded() const third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.cc:723:5
+    #5 0x558225ca0fb7 in blink::NGInlineNode::PrepareLayout(std::__1::unique_ptr<blink::NGInlineNodeData, std::__1::default_delete<blink::NGInlineNodeData> >) const third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.cc:414:3
+    #6 0x558225ca0678 in blink::NGInlineNode::PrepareLayoutIfNeeded() const third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.cc:391:3
+    #7 0x558225cae6bd in blink::NGInlineNode::EnsureData() const third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.cc:713:3
+    #8 0x558225df2835 in IsBlockLevel third_party/blink/renderer/core/layout/ng/inline/ng_inline_node.h:118:32
+    #9 0x558225df2835 in blink::NGBlockNode::FirstChild() const third_party/blink/renderer/core/layout/ng/ng_block_node.cc:896:20
+    #10 0x558225df704a in blink::NGBlockNode::IsInlineFormattingContextRoot(blink::NGLayoutInputNode*) const third_party/blink/renderer/core/layout/ng/ng_block_node.cc:1268:37
+    #11 0x558225e23902 in blink::NGBlockLayoutAlgorithm::Layout() third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:395:14
+    #12 0x558225dfca82 in operator() third_party/blink/renderer/core/layout/ng/ng_block_node.cc:171:50
+    #13 0x558225dfca82 in void blink::(anonymous namespace)::CreateAlgorithmAndRun<blink::NGBlockLayoutAlgorithm, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) third_party/blink/renderer/core/layout/ng/ng_block_node.cc:102:3
+    #14 0x558225dfb510 in void blink::(anonymous namespace)::DetermineAlgorithmAndRun<blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) third_party/blink/renderer/core/layout/ng/ng_block_node.cc:162:5
+    #15 0x558225de2377 in LayoutWithAlgorithm third_party/blink/renderer/core/layout/ng/ng_block_node.cc:169:3
+    #16 0x558225de2377 in blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const third_party/blink/renderer/core/layout/ng/ng_block_node.cc:468:21
+    #17 0x558225e42306 in blink::(anonymous namespace)::LayoutBlockChild(blink::NGConstraintSpace const&, blink::NGBreakToken const*, blink::NGEarlyBreak const*, blink::NGBlockNode*) third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:78:16
+    #18 0x558225e4317b in LayoutInflow third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:90:10
+    #19 0x558225e4317b in blink::NGBlockLayoutAlgorithm::HandleInflow(blink::NGLayoutInputNode, blink::NGBreakToken const*, blink::NGPreviousInflowPosition*, blink::NGInlineChildLayoutContext*, scoped_refptr<blink::NGInlineBreakToken const>*) third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:1579:7
+    #20 0x558225e26d12 in blink::NGBlockLayoutAlgorithm::Layout(blink::NGInlineChildLayoutContext*) third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:659:18
+    #21 0x558225e23962 in blink::NGBlockLayoutAlgorithm::Layout() third_party/blink/renderer/core/layout/ng/ng_block_layout_algorithm.cc:398:14
+    #22 0x558225dfca82 in operator() third_party/blink/renderer/core/layout/ng/ng_block_node.cc:171:50
+    #23 0x558225dfca82 in void blink::(anonymous namespace)::CreateAlgorithmAndRun<blink::NGBlockLayoutAlgorithm, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) third_party/blink/renderer/core/layout/ng/ng_block_node.cc:102:3
+    #24 0x558225dfb510 in void blink::(anonymous namespace)::DetermineAlgorithmAndRun<blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*)>(blink::NGLayoutAlgorithmParams const&, blink::(anonymous namespace)::LayoutWithAlgorithm(blink::NGLayoutAlgorithmParams const&)::'lambda'(blink::NGLayoutAlgorithmOperations*) const&) third_party/blink/renderer/core/layout/ng/ng_block_node.cc:162:5
+    #25 0x558225de2377 in LayoutWithAlgorithm third_party/blink/renderer/core/layout/ng/ng_block_node.cc:169:3
+    #26 0x558225de2377 in blink::NGBlockNode::Layout(blink::NGConstraintSpace const&, blink::NGBlockBreakToken const*, blink::NGEarlyBreak const*) const third_party/blink/renderer/core/layout/ng/ng_block_node.cc:468:21
+    #27 0x558225db320b in blink::LayoutNGMixin<blink::LayoutBlockFlow>::UpdateInFlowBlockLayout() third_party/blink/renderer/core/layout/ng/layout_ng_mixin.cc:271:25
+    #28 0x558225d846b2 in blink::LayoutNGBlockFlowMixin<blink::LayoutBlockFlow>::UpdateNGBlockLayout() third_party/blink/renderer/core/layout/ng/layout_ng_block_flow_mixin.cc:348:24
+    #29 0x5582256a9362 in blink::LayoutBlock::UpdateLayout() third_party/blink/renderer/core/layout/layout_block.cc:394:3
+    #30 0x5582256e6f9a in blink::LayoutBlockFlow::PositionAndLayoutOnceIfNeeded(blink::LayoutBox&, blink::LayoutUnit, blink::BlockChildrenLayoutInfo&) third_party/blink/renderer/core/layout/layout_block_flow.cc:835:11
+    #31 0x5582256e859f in blink::LayoutBlockFlow::LayoutBlockChild(blink::LayoutBox&, blink::BlockChildrenLayoutInfo&) third_party/blink/renderer/core/layout/layout_block_flow.cc:948:7
+    #32 0x5582256e32ea in blink::LayoutBlockFlow::LayoutBlockChildren(bool, blink::SubtreeLayoutScope&, blink::LayoutUnit, blink::LayoutUnit) third_party/blink/renderer/core/layout/layout_block_flow.cc:1646:5
+    #33 0x5582256dd813 in blink::LayoutBlockFlow::LayoutChildren(bool, blink::SubtreeLayoutScope&) third_party/blink/renderer/core/layout/layout_block_flow.cc:624:5
+    #34 0x5582256dba62 in blink::LayoutBlockFlow::UpdateBlockLayout(bool) third_party/blink/renderer/core/layout/layout_block_flow.cc:483:5
+    #35 0x558225b2898a in blink::LayoutView::UpdateBlockLayout(bool) third_party/blink/renderer/core/layout/layout_view.cc:307:20
+    #36 0x5582256a9362 in blink::LayoutBlock::UpdateLayout() third_party/blink/renderer/core/layout/layout_block.cc:394:3
+    #37 0x558225b29452 in blink::LayoutView::UpdateLayout() third_party/blink/renderer/core/layout/layout_view.cc:347:20
+    #38 0x5582247cb25e in blink::LocalFrameView::PerformLayout(bool) third_party/blink/renderer/core/frame/local_frame_view.cc:782:24
+    #39 0x5582247c6771 in blink::LocalFrameView::UpdateLayout() third_party/blink/renderer/core/frame/local_frame_view.cc:921:5
+    #40 0x558223b4828d in blink::Document::ImplicitClose() third_party/blink/renderer/core/dom/document.cc:3830:15
+    #41 0x558223b48d9d in blink::Document::CheckCompletedInternal() third_party/blink/renderer/core/dom/document.cc:3905:5
+    #42 0x558223b4798d in blink::Document::CheckCompleted() third_party/blink/renderer/core/dom/document.cc:3879:7
+    #43 0x5582260e4c24 in blink::FrameLoader::DidFinishNavigation(blink::FrameLoader::NavigationFinishState) third_party/blink/renderer/core/loader/frame_loader.cc:433:13
+    #44 0x5582260e40e0 in blink::FrameLoader::FinishedParsing() third_party/blink/renderer/core/loader/frame_loader.cc:396:26
+    #45 0x558223b6dad4 in blink::Document::FinishedParsing() third_party/blink/renderer/core/dom/document.cc:6832:21
+    #46 0x558225078113 in blink::HTMLConstructionSite::FinishedParsing() third_party/blink/renderer/core/html/parser/html_construction_site.cc:631:14
+    #47 0x5582251a59fc in blink::HTMLTreeBuilder::Finished() third_party/blink/renderer/core/html/parser/html_tree_builder.cc:2931:9
+    #48 0x558225037c88 in blink::HTMLDocumentParser::end() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1182:18
+    #49 0x558225025b5e in blink::HTMLDocumentParser::AttemptToRunDeferredScriptsAndEnd() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1197:3
+    #50 0x558225024ccc in blink::HTMLDocumentParser::PrepareToStopParsing() third_party/blink/renderer/core/html/parser/html_document_parser.cc:422:3
+    #51 0x558225038333 in blink::HTMLDocumentParser::AttemptToEnd() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1215:3
+    #52 0x558225038daf in blink::HTMLDocumentParser::Finish() third_party/blink/renderer/core/html/parser/html_document_parser.cc:1275:3
+    #53 0x558226098b4d in blink::DocumentLoader::FinishedLoading(base::TimeTicks) third_party/blink/renderer/core/loader/document_loader.cc:750:16
+    #54 0x558226098101 in blink::DocumentLoader::BodyLoadingFinished(base::TimeTicks, long, long, long, bool, base::Optional<blink::WebURLError> const&) third_party/blink/renderer/core/loader/document_loader.cc:669:5
+    #55 0x558217eb8c14 in blink::StaticDataNavigationBodyLoader::Continue() third_party/blink/renderer/platform/loader/static_data_navigation_body_loader.cc:88:13
+    #56 0x558217eb99b0 in blink::StaticDataNavigationBodyLoader::StartLoadingBody(blink::WebNavigationBodyLoader::Client*, bool) third_party/blink/renderer/platform/loader/static_data_navigation_body_loader.cc:46:3
+    #57 0x5582260a0f12 in blink::DocumentLoader::StartLoadingResponse() third_party/blink/renderer/core/loader/document_loader.cc:1364:17
+    #58 0x5582260a667a in blink::DocumentLoader::CommitNavigation() third_party/blink/renderer/core/loader/document_loader.cc:1801:3
+    #59 0x5582260e26fd in blink::FrameLoader::CommitDocumentLoader(blink::DocumentLoader*, base::Optional<blink::Document::UnloadEventTiming> const&, blink::HistoryItem*, blink::CommitReason) third_party/blink/renderer/core/loader/frame_loader.cc:1186:21
+    #60 0x5582260eb487 in blink::FrameLoader::CommitNavigation(std::__1::unique_ptr<blink::WebNavigationParams, std::__1::default_delete<blink::WebNavigationParams> >, std::__1::unique_ptr<blink::WebDocumentLoader::ExtraData, std::__1::default_delete<blink::WebDocumentLoader::ExtraData> >, blink::CommitReason) third_party/blink/renderer/core/loader/frame_loader.cc:1029:3
+    #61 0x5582249908a8 in blink::WebLocalFrameImpl::CommitNavigation(std::__1::unique_ptr<blink::WebNavigationParams, std::__1::default_delete<blink::WebNavigationParams> >, std::__1::unique_ptr<blink::WebDocumentLoader::ExtraData, std::__1::default_delete<blink::WebDocumentLoader::ExtraData> >) third_party/blink/renderer/core/frame/web_local_frame_impl.cc:2167:24
+    #62 0x55822b5bb649 in content::TestRenderFrame::BeginNavigation(std::__1::unique_ptr<blink::WebNavigationInfo, std::__1::default_delete<blink::WebNavigationInfo> >) content/test/test_render_frame.cc:363:13
+    #63 0x5582249a9ff6 in blink::LocalFrameClientImpl::BeginNavigation(blink::ResourceRequest const&, blink::mojom::RequestContextFrameType, blink::LocalDOMWindow*, blink::DocumentLoader*, blink::WebNavigationType, blink::NavigationPolicy, blink::WebFrameLoadType, bool, blink::TriggeringEventInfo, blink::HTMLFormElement*, network::mojom::CSPDisposition, mojo::PendingRemote<blink::mojom::blink::BlobURLToken>, base::TimeTicks, WTF::String const&, base::Optional<blink::WebImpression> const&, WTF::Vector<mojo::StructPtr<network::mojom::blink::ContentSecurityPolicy>, 0u, WTF::PartitionAllocator>, mojo::StructPtr<network::mojom::blink::CSPSource>, network::mojom::IPAddressSpace, mojo::PendingRemote<blink::mojom::blink::NavigationInitiator>) third_party/blink/renderer/core/exported/local_frame_client_impl.cc:679:25
+    #64 0x5582260e847d in blink::FrameLoader::StartNavigation(blink::FrameLoadRequest&, blink::WebFrameLoadType) third_party/blink/renderer/core/loader/frame_loader.cc:843:13
+    #65 0x558224dbd6fe in blink::HTMLFrameOwnerElement::LoadOrRedirectSubframe(blink::KURL const&, WTF::AtomicString const&, bool) third_party/blink/renderer/core/html/html_frame_owner_element.cc:563:25
+    #66 0x558224e33989 in blink::HTMLPlugInElement::RequestObject(blink::PluginParameters const&) third_party/blink/renderer/core/html/html_plugin_element.cc:621:12
+    #67 0x558224e238ba in blink::HTMLObjectElement::UpdatePluginInternal() third_party/blink/renderer/core/html/html_object_element.cc:273:30
+    #68 0x558224e308c9 in blink::HTMLPlugInElement::UpdatePlugin() third_party/blink/renderer/core/html/html_plugin_element.cc:255:3
+    #69 0x5582247d9268 in blink::LocalFrameView::UpdatePlugins() third_party/blink/renderer/core/frame/local_frame_view.cc:1881:16
+    #70 0x5582247bf126 in blink::LocalFrameView::UpdatePluginsTimerFired(blink::TimerBase*) third_party/blink/renderer/core/frame/local_frame_view.cc:1896:9
+    #71 0x558222b2479a in blink::TimerBase::RunInternal() third_party/blink/renderer/platform/timer.cc:152:3
+    #72 0x558222b24f90 in Invoke<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase>> base/bind_internal.h:498:12
+    #73 0x558222b24f90 in MakeItSo<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase>> base/bind_internal.h:657:5
+    #74 0x558222b24f90 in RunImpl<void (blink::TimerBase::*)(), std::__1::tuple<base::WeakPtr<blink::TimerBase> >, 0> base/bind_internal.h:710:12
+    #75 0x558222b24f90 in base::internal::Invoker<base::internal::BindState<void (blink::TimerBase::*)(), base::WeakPtr<blink::TimerBase> >, void ()>::RunOnce(base::internal::BindStateBase*) base/bind_internal.h:679:12
+    #76 0x558217cf57af in Run base/callback.h:99:12
+    #77 0x558217cf57af in RunInternal third_party/blink/renderer/platform/wtf/functional.h:264:33
+    #78 0x558217cf57af in WTF::ThreadCheckingCallbackWrapper<base::OnceCallback<void ()>, void ()>::Run() third_party/blink/renderer/platform/wtf/functional.h:249:12
+    #79 0x55821b776ac2 in Run base/callback.h:99:12
+    #80 0x55821b776ac2 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:142:33
+    #81 0x55821b7ca8dc in base::sequence_manager::internal::ThreadControllerImpl::DoWork(base::sequence_manager::internal::ThreadControllerImpl::WorkType) base/task/sequence_manager/thread_controller_impl.cc:184:23
+    #82 0x55821b7ce712 in void base::internal::FunctorTraits<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), void>::Invoke<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&>(void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> const&, base::sequence_manager::internal::ThreadControllerImpl::WorkType const&) base/bind_internal.h:498:12
+    #83 0x55821b776ac2 in Run base/callback.h:99:12
+    #84 0x55821b776ac2 in base::TaskAnnotator::RunTask(char const*, base::PendingTask*) base/task/common/task_annotator.cc:142:33
+    #85 0x55821b7d20a2 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:333:23
+    #86 0x55821b7d185f in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:253:36
+    #87 0x55821b68e0c3 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_default.cc:39:55
+    #88 0x55821b7d37a7 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:452:12
+    #89 0x55821b718918 in base::RunLoop::Run() base/run_loop.cc:124:14
+    #90 0x55822b5a582f in content::RenderViewTest::LoadHTMLWithUrlOverride(char const*, char const*) content/public/test/render_view_test.cc:336:10
+    #91 0x55821051e069 in LoadHTML content/test/fuzzer/fuzzer_support.h:27:21
+    #92 0x55821051e069 in LLVMFuzzerTestOneInput content/test/fuzzer/renderer_fuzzer.cc:22:17
+    #93 0x55821051f613 in main testing/libfuzzer/unittest_main.cc:57:5
+    #94 0x7fc67505bb96 in __libc_start_main /build/glibc-2ORdQG/glibc-2.27/csu/../csu/libc-start.c:310
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: ABRT /build/glibc-2ORdQG/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51 in raise
+==21488==ABORTING

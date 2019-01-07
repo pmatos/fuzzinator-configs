@@ -1,0 +1,7 @@
+{
+  "condition": "IrOpcode::IsInlineeOpcode(node->opcode())",
+  "error_type": "Debug check failed",
+  "file": "../../src/compiler/js-inlining.cc",
+  "line": "378",
+  "security": "None"
+}

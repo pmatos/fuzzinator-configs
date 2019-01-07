@@ -1,0 +1,12 @@
+{
+  "address": "0x03e900009c90",
+  "address_type": "unknown address",
+  "condition": "!NeedsLayout() || ChildLayoutBlockedByDisplayLock().",
+  "error_type": "Security DCHECK failed",
+  "file": "layout_object.h",
+  "frame_id": "2",
+  "function": "blink::LayoutObject::AssertLaidOut()",
+  "line": "500",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

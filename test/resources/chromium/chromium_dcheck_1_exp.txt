@@ -1,0 +1,12 @@
+{
+  "address": "0x03e9000010fc",
+  "address_type": "unknown address",
+  "condition": "!NeedsLayoutTreeUpdate(position)",
+  "error_type": "Check failed",
+  "file": "visible_units.cc",
+  "frame_id": "3",
+  "function": "blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > blink::MostBackwardCaretPosition<blink::EditingAlgorithm<blink::FlatTreeTraversal> >(blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > const&, blink::EditingBoundaryCrossingRule)",
+  "line": "688",
+  "sanitizer": "AddressSanitizer",
+  "security": "None"
+}

@@ -1,0 +1,105 @@
+[1227/094355.175829:FATAL:visible_units.cc(688)] Check failed: !NeedsLayoutTreeUpdate(position). BODY id="id_6" class="cls_6"@offsetInAnchor[0]
+#0 0x55e719432edb <unknown>
+#1 0x55e72628ad49 <unknown>
+#2 0x55e725fda273 <unknown>
+#3 0x55e726032467 <unknown>
+#4 0x55e72603435e <unknown>
+#5 0x55e72e4adeb8 <unknown>
+#6 0x55e72e4ad796 <unknown>
+#7 0x55e72e4ad515 <unknown>
+#8 0x55e72e2e0923 <unknown>
+#9 0x55e72f5f893d <unknown>
+#10 0x55e72f9d925f <unknown>
+#11 0x55e72f422f91 <unknown>
+#12 0x55e72f2bced2 <unknown>
+#13 0x55e72f9d9205 <unknown>
+#14 0x55e72f292bd5 <unknown>
+#15 0x55e72dd0feec <unknown>
+#16 0x55e7328cf716 <unknown>
+#17 0x55e71f0534f0 <unknown>
+#18 0x55e71f04f709 <unknown>
+#19 0x55e71f04be49 <unknown>
+#20 0x55e71f04aeed <unknown>
+#21 0x55e721ebf8df <unknown>
+Task trace:
+#0 0x55e72ee21c7b <unknown>
+#1 0x55e731d86640 <unknown>
+#2 0x55e731d86640 <unknown>
+#3 0x55e731d05687 <unknown>
+
+AddressSanitizer:DEADLYSIGNAL
+=================================================================
+==4348==ERROR: AddressSanitizer: ABRT on unknown address 0x03e9000010fc (pc 0x7fa20512efb7 bp 0x7ffcccfb3470 sp 0x7ffcccfb3220 T0)
+    #0 0x7fa20512efb7 in __GI_raise /build/glibc-S9d2JN/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51 (discriminator 3)
+    #1 0x55e726032e7a in logging::LogMessage::~LogMessage() base/logging.cc:882
+    #2 0x55e72603435d in logging::LogMessage::~LogMessage() base/logging.cc:558
+    #3 0x55e72e4adeb7 in blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > blink::MostBackwardCaretPosition<blink::EditingAlgorithm<blink::FlatTreeTraversal> >(blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > const&, blink::EditingBoundaryCrossingRule) third_party/blink/renderer/core/editing/visible_units.cc:688
+    #4 0x55e72e4ad795 in blink::PositionTemplate<blink::EditingAlgorithm<blink::NodeTraversal> > blink::MostBackwardOrForwardCaretPosition<blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > (*)(blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > const&, blink::EditingBoundaryCrossingRule)>(blink::PositionTemplate<blink::EditingAlgorithm<blink::NodeTraversal> > const&, blink::EditingBoundaryCrossingRule, blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > (*)(blink::PositionTemplate<blink::EditingAlgorithm<blink::FlatTreeTraversal> > const&, blink::EditingBoundaryCrossingRule)) third_party/blink/renderer/core/editing/visible_units.cc:630
+    #5 0x55e72e4ad514 in blink::MostBackwardCaretPosition(blink::PositionTemplate<blink::EditingAlgorithm<blink::NodeTraversal> > const&, blink::EditingBoundaryCrossingRule) third_party/blink/renderer/core/editing/visible_units.cc:797
+    #6 0x55e72e2e0922 in blink::AdjustForEditingBoundary(blink::PositionWithAffinityTemplate<blink::EditingAlgorithm<blink::NodeTraversal> > const&) third_party/blink/renderer/core/editing/editing_utilities.cc:1395
+    #7 0x55e72f5f893c in CreatePositionWithAffinity third_party/blink/renderer/core/layout/layout_object.cc:4205
+    #8 0x55e72f5f893c in CreatePositionWithAffinity third_party/blink/renderer/core/layout/layout_object.cc:4279
+    #9 0x55e72f9d925e in blink::LayoutNGBlockFlowMixin<blink::LayoutBlockFlow>::PositionForPoint(blink::PhysicalOffset const&) const third_party/blink/renderer/core/layout/ng/layout_ng_block_flow_mixin.cc:234
+    #10 0x55e72f422f90 in blink::LayoutBox::PositionForPoint(blink::PhysicalOffset const&) const third_party/blink/renderer/core/layout/layout_box.cc:6589
+    #11 0x55e72f2bced1 in blink::LayoutBlock::PositionForPoint(blink::PhysicalOffset const&) const third_party/blink/renderer/core/layout/layout_block.cc:1484
+    #12 0x55e72f9d9204 in blink::LayoutNGBlockFlowMixin<blink::LayoutBlockFlow>::PositionForPoint(blink::PhysicalOffset const&) const third_party/blink/renderer/core/layout/ng/layout_ng_block_flow_mixin.cc:230
+    #13 0x55e72f292bd4 in blink::HitTestResult::GetPosition() const third_party/blink/renderer/core/layout/hit_test_result.cc:193
+    #14 0x55e72dd0feeb in blink::Document::caretRangeFromPoint(int, int) third_party/blink/renderer/core/dom/document.cc:1712
+    #15 0x55e7328cf715 in blink::(anonymous namespace)::CaretRangeFromPointOperationCallback(v8::FunctionCallbackInfo<v8::Value> const&) gen/third_party/blink/renderer/bindings/modules/v8/v8_document.cc:4969
+    #16 0x55e71f0534ef in v8::internal::FunctionCallbackArguments::Call(v8::internal::CallHandlerInfo) v8/src/api/api-arguments-inl.h:158
+    #17 0x55e71f04f708 in v8::internal::MaybeHandle<v8::internal::Object> v8::internal::(anonymous namespace)::HandleApiCallHelper<false>(v8::internal::Isolate*, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::HeapObject>, v8::internal::Handle<v8::internal::FunctionTemplateInfo>, v8::internal::Handle<v8::internal::Object>, v8::internal::BuiltinArguments) v8/src/builtins/builtins-api.cc:111
+    #18 0x55e71f04be48 in v8::internal::Builtin_Impl_HandleApiCall(v8::internal::BuiltinArguments, v8::internal::Isolate*) v8/src/builtins/builtins-api.cc:141
+    #19 0x55e71f04aeec in v8::internal::Builtin_HandleApiCall(int, unsigned long*, v8::internal::Isolate*) v8/src/builtins/builtins-api.cc:129
+    #20 0x55e721ebf8de in Builtins_CEntry_Return1_DontSaveFPRegs_ArgvOnStack_BuiltinExit setup-isolate-deserialize.cc:?
+    #21 0x55e721c309ce in Builtins_InterpreterEntryTrampoline setup-isolate-deserialize.cc:?
+    #22 0x55e721c2717a in Builtins_JSEntryTrampoline setup-isolate-deserialize.cc:?
+    #23 0x55e721c26f57 in Builtins_JSEntry setup-isolate-deserialize.cc:?
+    #24 0x55e71f3d1583 in Call v8/src/execution/simulator.h:142
+    #25 0x55e71f3d1583 in Invoke v8/src/execution/execution.cc:368
+    #26 0x55e71f3d0355 in v8::internal::Execution::Call(v8::internal::Isolate*, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, int, v8::internal::Handle<v8::internal::Object>*) v8/src/execution/execution.cc:462
+    #27 0x55e71ee4ce01 in v8::Function::Call(v8::Local<v8::Context>, v8::Local<v8::Value>, int, v8::Local<v8::Value>*) v8/src/api/api.cc:5118
+    #28 0x55e730deb216 in blink::V8ScriptRunner::CallFunction(v8::Local<v8::Function>, blink::ExecutionContext*, v8::Local<v8::Value>, int, v8::Local<v8::Value>*, v8::Isolate*) third_party/blink/renderer/bindings/core/v8/v8_script_runner.cc:632
+    #29 0x55e730cadaf7 in blink::bindings::CallbackInvokeHelper<blink::CallbackInterfaceBase, (blink::bindings::CallbackInvokeHelperMode)0>::Call(int, v8::Local<v8::Value>*) third_party/blink/renderer/bindings/core/v8/callback_invoke_helper.cc:129
+    #30 0x55e731eaf30a in blink::V8EventListener::InvokeWithoutRunnabilityCheck(blink::bindings::V8ValueOrScriptWrappableAdapter, blink::Event*) gen/third_party/blink/renderer/bindings/core/v8/v8_event_listener.cc:126
+    #31 0x55e730cb80bd in blink::JSBasedEventListener::Invoke(blink::ExecutionContext*, blink::Event*) third_party/blink/renderer/bindings/core/v8/js_based_event_listener.cc:150
+    #32 0x55e72df4e9b5 in blink::EventTarget::FireEventListeners(blink::Event&, blink::EventTargetData*, blink::HeapVector<blink::RegisteredEventListener, 1u>&) third_party/blink/renderer/core/dom/events/event_target.cc:935
+    #33 0x55e72df4cd5e in blink::EventTarget::FireEventListeners(blink::Event&) third_party/blink/renderer/core/dom/events/event_target.cc:849
+    #34 0x55e72e690b7d in blink::LocalDOMWindow::DispatchEvent(blink::Event&, blink::EventTarget*) third_party/blink/renderer/core/frame/local_dom_window.cc:1861
+    #35 0x55e72e68fe46 in blink::LocalDOMWindow::DispatchLoadEvent() third_party/blink/renderer/core/frame/local_dom_window.cc:1823
+    #36 0x55e72e68f62d in blink::LocalDOMWindow::DispatchWindowLoadEvent() third_party/blink/renderer/core/frame/local_dom_window.cc:664
+    #37 0x55e72e6902ce in blink::LocalDOMWindow::DocumentWasClosed() third_party/blink/renderer/core/frame/local_dom_window.cc:668
+    #38 0x55e72dd2fd58 in blink::Document::ImplicitClose() third_party/blink/renderer/core/dom/document.cc:3845
+    #39 0x55e72dd30f06 in blink::Document::CheckCompletedInternal() third_party/blink/renderer/core/dom/document.cc:3958
+    #40 0x55e72dd60297 in CheckCompleted third_party/blink/renderer/core/dom/document.cc:3932
+    #41 0x55e72dd60297 in DecrementLoadEventDelayCountAndCheckLoadEvent third_party/blink/renderer/core/dom/document.cc:7465
+    #42 0x55e72e04c3ad in blink::IncrementLoadEventDelayCount::ClearAndCheckLoadEvent() third_party/blink/renderer/core/dom/increment_load_event_delay_count.cc:26
+    #43 0x55e72ee23663 in Invoke<void (blink::HTMLStyleElement::*)(std::unique_ptr<blink::IncrementLoadEventDelayCount>, bool), blink::Persistent<blink::HTMLStyleElement>, std::unique_ptr<blink::IncrementLoadEventDelayCount>, bool> base/bind_internal.h:498
+    #44 0x55e72ee23663 in MakeItSo<void (blink::HTMLStyleElement::*)(std::unique_ptr<blink::IncrementLoadEventDelayCount>, bool), blink::Persistent<blink::HTMLStyleElement>, std::unique_ptr<blink::IncrementLoadEventDelayCount>, bool> base/bind_internal.h:637
+    #45 0x55e72ee23663 in RunImpl<void (blink::HTMLStyleElement::*)(std::unique_ptr<blink::IncrementLoadEventDelayCount>, bool), std::tuple<blink::Persistent<blink::HTMLStyleElement>, WTF::PassedWrapper<std::unique_ptr<blink::IncrementLoadEventDelayCount> >, bool>, 0, 1, 2> base/bind_internal.h:710
+    #46 0x55e72ee23663 in RunOnce base/bind_internal.h:679
+    #47 0x55e72243c11d in Run base/callback.h:101
+    #48 0x55e72243c11d in RunInternal third_party/blink/renderer/platform/wtf/functional.h:256
+    #49 0x55e72243c11d in Run third_party/blink/renderer/platform/wtf/functional.h:241
+    #50 0x55e72614e9f0 in Run base/callback.h:101
+    #51 0x55e72614e9f0 in RunTask base/task/common/task_annotator.cc:163
+    #52 0x55e7261a32a0 in base::sequence_manager::internal::ThreadControllerImpl::DoWork(base::sequence_manager::internal::ThreadControllerImpl::WorkType) base/task/sequence_manager/thread_controller_impl.cc:199
+    #53 0x55e7261a7607 in Invoke<void (base::sequence_manager::internal::ThreadControllerImpl::*)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> &, const base::sequence_manager::internal::ThreadControllerImpl::WorkType &> base/bind_internal.h:498
+    #54 0x55e7261a7607 in MakeItSo<void (base::sequence_manager::internal::ThreadControllerImpl::*const &)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl> &, const base::sequence_manager::internal::ThreadControllerImpl::WorkType &> base/bind_internal.h:657
+    #55 0x55e7261a7607 in RunImpl<void (base::sequence_manager::internal::ThreadControllerImpl::*const &)(base::sequence_manager::internal::ThreadControllerImpl::WorkType), const std::tuple<base::WeakPtr<base::sequence_manager::internal::ThreadControllerImpl>, base::sequence_manager::internal::ThreadControllerImpl::WorkType> &, 0, 1> base/bind_internal.h:710
+    #56 0x55e7261a7607 in Run base/bind_internal.h:692
+    #57 0x55e72614e9f0 in Run base/callback.h:101
+    #58 0x55e72614e9f0 in RunTask base/task/common/task_annotator.cc:163
+    #59 0x55e7261af6c6 in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWorkImpl(base::sequence_manager::LazyNow*) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:351
+    #60 0x55e7261aedcf in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::DoWork() base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:264
+    #61 0x55e72604fd03 in base::MessagePumpDefault::Run(base::MessagePump::Delegate*) base/message_loop/message_pump_default.cc:39
+    #62 0x55e7261b137c in base::sequence_manager::internal::ThreadControllerWithMessagePumpImpl::Run(bool, base::TimeDelta) base/task/sequence_manager/thread_controller_with_message_pump_impl.cc:460
+    #63 0x55e7260eadda in base::RunLoop::Run() base/run_loop.cc:131
+    #64 0x55e736f3077e in content::RenderViewTest::LoadHTMLWithUrlOverride(char const*, char const*) content/public/test/render_view_test.cc:381
+    #65 0x55e7194a3589 in LoadHTML content/test/fuzzer/fuzzer_support.h:27
+    #66 0x55e7194a3589 in LLVMFuzzerTestOneInput content/test/fuzzer/renderer_fuzzer.cc:22
+    #67 0x55e7194a4b18 in main testing/libfuzzer/unittest_main.cc:57
+    #68 0x7fa205111bf6 in __libc_start_main /build/glibc-S9d2JN/glibc-2.27/csu/../csu/libc-start.c:310
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: ABRT /build/glibc-S9d2JN/glibc-2.27/signal/../sysdeps/unix/sysv/linux/raise.c:51 (discriminator 3) in __GI_raise
+==4348==ABORTING

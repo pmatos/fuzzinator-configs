@@ -1,0 +1,24 @@
+Chrome Version: {{version}}
+OS: {{platform}}
+
+Fuzz Target: {{sut}}
+Fuzzing Engine: Grammarinator
+Crash Type: {{error_type}}
+
+Can you reproduce this crash?
+Yes.
+
+What steps will reproduce this crash?
+(1) Load the attached test case:
+
+Test case:
+
+{% if reduced %}
+{{reduced}}
+{% else %}
+{{test}}
+{% endif %}
+
+Backtrace:
+
+{{stderr|trim}}
